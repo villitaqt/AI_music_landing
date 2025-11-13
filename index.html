@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación Estratégica: Problema Raíz del Mentor de IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals (Stone, Gray) with Sombrero-themed accents (Red, Blue, Green, Yellow, Black) -->
+    <!-- Application Structure Plan: Designed a 4-section SPA. 1. Intro (The Decision), 2. Hypotheses (Grid of 6 cards), 3. Analysis (Interactive 6-tab interface for each Sombrero), 4. Verdict & Bibliography. This structure transforms the linear report into an explorable decision-making workbench, allowing users to cross-reference the analysis by Sombrero (tab) instead of just reading. This is superior for synthesis. -->
+    <!-- Visualization & Content Choices: Report Info: 6 Problem Hypotheses & 6 Sombrero Analyses. Goal: Compare & Analyze. Viz/Method: Interactive JS-powered Tab Interface for the 6 Sombreros. Interaction: Clicking a Sombrero (e.g., 'Negro') instantly displays *all* risks, allowing for thematic analysis not possible in the static doc. Justification: This non-linear exploration is the app's core value. Method: Vanilla JS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        .tab-button.active {
+            border-bottom-width: 4px;
+            font-weight: 600;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 class="text-3xl font-bold tracking-tight text-stone-900">Investigación Estratégica: Definiendo el Problema Raíz</h1>
+            <p class="mt-2 text-lg text-stone-600">Un análisis interactivo de la decisión fundamental para el "Mentor de IA".</p>
+            <i> por: Diego Villajulca Quispe</i>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Section 1: The Decision -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-4">Decisión a Evaluar</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-xl text-stone-700">¿Cuál es el problema fundamental y monetizable que el "Mentor de IA" debe resolver para mi arquetipo de cliente, el guitarrista amateur "Marco"?</p>
+            </div>
+        </section>
+
+        <!-- Section 2: The Hypotheses -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6">Las 6 Hipótesis del Problema</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-700">1. Enfoque en la Soledad</h3>
+                    <p class="mt-2 text-stone-600">El problema es la <strong>soledad creativa</strong>; a Marco le falta un compañero de jam y feedback humano para mantenerse motivado.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-700">2. Enfoque en el Hábito</h3>
+                    <p class="mt-2 text-stone-600">El problema es la <strong>falta de constancia y disciplina</strong>; Marco necesita ser "empujado" a practicar diariamente.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-700">3. Enfoque en el Conocimiento Aplicado</h3>
+                    <p class="mt-2 text-stone-600">El problema es el <strong>conocimiento no aplicado</strong>; Marco sabe la teoría (pentatónicas), pero no sabe cómo traducirla a música expresiva y contextual.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-700">4. Enfoque en el Acceso/Costo</h3>
+                    <p class="mt-2 text-stone-600">El problema es la <strong>inflexibilidad y el alto costo</strong> del feedback de calidad; Marco quiere el resultado de un profesor experto, pero 24/7 y a bajo costo.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-700">5. Enfoque en el Estancamiento (Síntoma)</h3>
+                    <p class="mt-2 text-stone-600">El problema es el <strong>estancamiento melódico</strong>; Marco no tiene herramientas para romper la inercia de sus patrones memorizados (hábitos motores).</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <h3 class="text-lg font-semibold text-blue-700">6. Enfoque en el Miedo/Feedback</h3>
+                    <p class="mt-2 text-stone-600">El problema es el <strong>miedo a sonar mal</strong> y la falta de un espacio de feedback seguro, instantáneo e imparcial (sin juicios humanos).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The 6 Hats Analysis (Interactive Tabs) -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-semibold mb-6">Análisis: Seis Sombreros de Pensamiento</h2>
+            <div class="bg-white rounded-lg shadow-md">
+                <!-- Tab Navigation -->
+                <nav class="flex flex-wrap border-b border-gray-300">
+                    <button class="tab-button py-4 px-6 text-stone-500 hover:text-stone-700" data-tab-target="tab-blanco">
+                        <span class="text-xl">⚪</span> Sombrero Blanco (Datos)
+                    </button>
+                    <button class="tab-button py-4 px-6 text-red-500 hover:text-red-700" data-tab-target="tab-rojo">
+                        <span class="text-xl">🔴</span> Sombrero Rojo (Sentimientos)
+                    </button>
+                    <button class="tab-button py-4 px-6 text-stone-800 hover:text-black" data-tab-target="tab-negro">
+                        <span class="text-xl">⚫</span> Sombrero Negro (Riesgos)
+                    </button>
+                    <button class="tab-button py-4 px-6 text-yellow-500 hover:text-yellow-700" data-tab-target="tab-amarillo">
+                        <span class="text-xl">🟡</span> Sombrero Amarillo (Beneficios)
+                    </button>
+                    <button class="tab-button py-4 px-6 text-green-500 hover:text-green-700" data-tab-target="tab-verde">
+                        <span class="text-xl">🟢</span> Sombrero Verde (Creatividad)
+                    </button>
+                    <button class="tab-button py-4 px-6 text-blue-500 hover:text-blue-700 active" data-tab-target="tab-azul">
+                        <span class="text-xl">🔵</span> Sombrero Azul (Decisión)
+                    </button>
+                </nav>
+
+                <!-- Tab Content Panels -->
+                <div class="p-6 md:p-8">
+                    <!-- Tab Blanco -->
+                    <div id="tab-blanco" class="tab-content space-y-4">
+                        <ul class="list-disc list-inside text-stone-700 space-y-3">
+                            <li><strong>Dato 1 (Metacognición y Práctica Autodidacta):</strong> Los músicos autodidactas (como Marco, que usa YouTube) a menudo desarrollan habilidades técnicas, pero fallan en la <strong>metacognición</strong>. La metacognición en la música implica *planificar la práctica*, *monitorear el resultado* (auto-escucha crítica) y *evaluar* si el resultado sonó "bien" o "mal" (J. W. Kruger & D. Dunning, 1999). La frustración de Marco (relacionada con el <strong>Enfoque en el Conocimiento Aplicado</strong> y el <strong>Enfoque en el Estancamiento</strong>) no es la falta de *información*, sino la falta de un *proceso metacognitivo* para aplicar esa información.</li>
+                            <li><strong>Dato 2 (El "Valle del Aprendizaje" y la Práctica Deliberada):</strong> El "estancamiento" (el <strong>Enfoque en el Estancamiento</strong>) es un "valle del aprendizaje" (plateau) bien documentado. La investigación de K. Anders Ericsson sobre la <strong>"Práctica Deliberada"</strong> (Deliberate Practice) demuestra que la mejora no proviene de la *cantidad* de práctica, sino de la *calidad*: práctica enfocada en tareas específicas, justo fuera de la zona de confort, y (crucialmente) con <strong>feedback inmediato y específico</strong> (Ericsson, 2007).</li>
+                            <li><strong>Dato 3 (Feedback y Motivación):</strong> El feedback que no es específico (ej. "sigue practicando" de YouTube) o es puramente correctivo (ej. "nota incorrecta") puede disminuir la motivación intrínseca. El feedback efectivo debe ser <strong>procesable</strong> y <strong>contextualizado</strong> (Hattie & Timperley, 2007). El feedback humano (relacionado al <strong>Enfoque en el Acceso/Costo</strong>) es costoso e inflexible. El feedback de la IA (relacionado al <strong>Enfoque en el Miedo/Feedback</strong>) puede ser imparcial, instantáneo y seguro, lo que es vital para la práctica deliberada.</li>
+                            <li><strong>Dato 4 (Evidencia de Pruebas Previas):</strong> Mi MVP Concierge anterior (NPS 9.0) validó que el *feedback creativo y contextual* ("Prueba la escala Dórica aquí") genera una reacción emocional de alto valor ("Me dio escalofríos").</li>
+                        </ul>
+                    </div>
+                    <!-- Tab Rojo -->
+                    <div id="tab-rojo" class="tab-content space-y-4">
+                        <ul class="list-disc list-inside text-stone-700 space-y-3">
+                            <li><strong>Intuición:</strong> Siento que el <strong>Enfoque en el Hábito</strong> (la disciplina) es una trampa. Si me enfoco en "forzar la disciplina", mi producto será percibido como una "tarea" (homework) y será odiado. La disciplina debe ser un <strong>resultado</strong> de la motivación, no la <strong>solución</strong>.</li>
+                            <li><strong>Emoción:</strong> El sentimiento más fuerte de Marco es la <strong>frustración creativa</strong> (relacionado al <strong>Enfoque en el Estancamiento</strong>) y la <strong>inseguridad</strong> (relacionado al <strong>Enfoque en el Miedo/Feedback</strong>). Él <strong>siente</strong> que suena robótico. Quiere <strong>sentirse</strong> como un artista, no como un estudiante.</li>
+                            <li><strong>Corazonada:</strong> La solución (IA) encaja perfectamente con el <strong>Enfoque en el Conocimiento Aplicado</strong>. Es el único problema que la IA puede resolver <strong>mejor</strong> que un humano, ya que un humano no puede estar disponible 24/7 para dar feedback contextualizado en cada solo.</li>
+                        </ul>
+                    </div>
+                    <!-- Tab Negro -->
+                    <div id="tab-negro" class="tab-content space-y-4">
+                        <ul class="list-disc list-inside text-stone-700 space-y-3">
+                            <li><strong>Riesgo del Enfoque en la Soledad:</strong> Si el problema raíz es la soledad creativa, mi IA es la solución incorrecta. Una IA no puede reemplazar a un compañero de banda. Resolver este problema requeriría un pivote hacia una red social de músicos (un mercado totalmente diferente).</li>
+                            <li><strong>Riesgo del Enfoque en el Hábito:</strong> Si el problema es la pereza fundamental, Marco abandonará (churn) el producto tan pronto como la IA le exija "práctica deliberada", porque el esfuerzo es demasiado alto. El riesgo de retención es máximo.</li>
+                            <li><strong>Riesgo del Enfoque en el Conocimiento/Estancamiento:</strong> Si defino el problema aquí, el riesgo de factibilidad es enorme. Si el feedback de la IA es genérico (ej. "Suenas bien") o incorrecto (ej. "Usa una escala que no encaja"), la credibilidad se destruye instantáneamente y el producto muere.</li>
+                            <li><strong>Riesgo del Enfoque en el Acceso/Costo:</strong> Si me enfoco solo en el precio, compito contra YouTube (gratis) y aplicaciones de aprendizaje baratas. Es una carrera hacia el fondo (race to the bottom).</li>
+                        </ul>
+                    </div>
+                    <!-- Tab Amarillo -->
+                    <div id="tab-amarillo" class="tab-content space-y-4">
+                        <ul class="list-disc list-inside text-stone-700 space-y-3">
+                            <li><strong>Foco en el Valor Premium:</strong> Al enfocarme en el <strong>Enfoque en el Conocimiento Aplicado</strong> y el <strong>Enfoque en el Estancamiento Melódico</strong>, creo un producto de <strong>alto valor percibido</strong>. No vendo "lecciones", vendo "desbloqueo creativo".</li>
+                            <li><strong>Justificación de la IA:</strong> Este enfoque justifica <strong>por qué</strong> una IA es necesaria. La IA no es un <strong>gimmick</strong> (artilugio), es la única forma de escalar un feedback instantáneo y personalizado (Práctica Deliberada).</li>
+                            <li><strong>Viabilidad (Ancla de Precio):</strong> El problema del <strong>Enfoque en el Acceso/Costo</strong> se convierte en mi <strong>Ángulo de Venta (UVP)</strong>: "Obtén feedback de nivel experto ($40/hr) por $15/mes, en tu propio horario". El problema apoya la viabilidad de la solución.</li>
+                        </ul>
+                    </div>
+                    <!-- Tab Verde -->
+                    <div id="tab-verde" class="tab-content space-y-4">
+                        <ul class="list-disc list-inside text-stone-700 space-y-3">
+                            <li><strong>Idea Alternativa (Pivot de Problema):</strong> ¿Y si el problema no es la *improvisación*, sino la <strong>"Composición"</strong>? Marco quiere crear *sus* canciones. La IA podría ayudarlo a estructurar sus ideas (A-B-A-C-B) en lugar de solo analizar sus solos.</li>
+                            <li><strong>Idea de Integración (Práctica Deliberada):</strong> El problema raíz es la <strong>falla en la Práctica Deliberada</strong>. La solución no es un "mentor pasivo", sino un <strong>"Entrenador de Desafíos"</strong> (Challenge Coach). La IA detecta el estancamiento (el <strong>Enfoque en el Estancamiento</strong>) y genera un desafío específico (Práctica Deliberada) para romperlo.</li>
+                            <li><strong>Enfoque en el Miedo:</strong> El problema es el <strong>miedo escénico</strong> de la práctica. La IA es el único "mentor" que permite sonar mal 100 veces sin juicio, resolviendo el miedo al fracaso (el <strong>Enfoque en el Miedo/Feedback</strong>) y fomentando la experimentación.</li>
+                        </ul>
+                    </div>
+                    <!-- Tab Azul -->
+                    <div id="tab-azul" class="tab-content active space-y-4">
+                        <h3 class="text-xl font-semibold text-blue-700">Conclusión del Análisis</h3>
+                        <p class="text-stone-700">Mi análisis de Seis Sombreros, fundamentado en la investigación (Sombrero Blanco), muestra que:</p>
+                        <ol class="list-decimal list-inside text-stone-700 space-y-2">
+                            <li>Los problemas de <strong>Soledad Creativa</strong> y <strong>Falta de Constancia</strong> son trampas de alto riesgo para una solución de IA.</li>
+                            <li>El problema de <strong>Inflexibilidad y Alto Costo</strong> es un factor de marketing crucial (mi UVP), pero no el <em>problema de valor</em> central.</li>
+                            <li>El dolor real, monetizable y solucionable por la IA es la convergencia del <strong>Enfoque en el Conocimiento Aplicado</strong>, el <strong>Enfoque en el Estancamiento Melódico</strong> y el <strong>Enfoque en el Miedo/Feedback</strong>.</li>
+                        </ol>
+                        <p class="text-stone-700">La investigación sobre <strong>Práctica Deliberada</strong> y <strong>Metacognición</strong> me da el "Por Qué" científico: Marco está estancado porque YouTube (la alternativa) ofrece <strong>información</strong> pero no <strong>feedback procesable inmediato</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Verdict & Bibliography -->
+        <section class="mb-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 bg-white p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-semibold mb-4">Decisión Final del Problema a Priorizar</h2>
+                    <h3 class="text-xl font-semibold text-stone-800 mb-3">(Mi Hipótesis del Dolor Monetizable)</h3>
+                    <blockquote class="border-l-4 border-blue-600 pl-4 italic text-stone-700">
+                        "Marco está estancado creativamente (<strong>Enfoque en el Estancamiento</strong>) porque su método de práctica (YouTube) carece de un ciclo de 'Práctica Deliberada'. Específicamente, le falta un feedback instantáneo, contextualizado (<strong>Enfoque en el Conocimiento Aplicado</strong>) y seguro/imparcial (<strong>Enfoque en el Miedo/Feedback</strong>) que le permita aplicar la teoría musical para romper sus hábitos motores (licks repetitivos) y ganar confianza creativa."
+                    </blockquote>
+                    <h4 class="text-lg font-semibold mt-6 mb-2">Próximo Paso</h4>
+                    <p class="text-stone-600">Esta definición, mucho más sólida y respaldada por la investigación, refuerza mi decisión de avanzar. El riesgo de <strong>Factibilidad</strong> (construir la IA) ahora se justifica plenamente porque ataca un problema complejo y validado.</p>
+                </div>
+                <div class="bg-stone-100 p-6 rounded-lg shadow-inner">
+                    <h2 class="text-2xl font-semibold mb-4">Bibliografía</h2>
+                    <ul class="space-y-4 text-sm text-stone-600">
+                        <li><strong>1. Ericsson, K. A. (2007).</strong> "Deliberate practice and the acquisition and maintenance of expert performance..." *Academic Medicine*.</li>
+                        <li><strong>2. Hattie, J., & Timperley, H. (2007).</strong> "The Power of Feedback." *Review of Educational Research*.</li>
+                        <li><strong>3. Kruger, J., & Dunning, D. (1999).</strong> "Unskilled and unaware of it: How difficulties in recognizing one's own incompetence..." *Journal of Personality and Social Psychology*.</li>
+                        <li><strong>4. Investigación de IA en Música (General):</strong> Artículos como "AI-assisted feedback and reflection in vocal music training" (PMC, 2024) y "AI TrackMate" (arXiv, 2024).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 text-center p-4 mt-8">
+        <p>&copy; 2025 Mentor de IA - Análisis Estratégico. SPA generada para exploración.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabs = document.querySelectorAll('.tab-button');
+            const contents = document.querySelectorAll('.tab-content');
+            const tabContainer = document.querySelector('nav.flex');
+
+            function setActiveTab(targetId) {
+                // Hide all content
+                contents.forEach(content => {
+                    content.classList.remove('active');
+                });
+
+                // Deactivate all tabs
+                tabs.forEach(tab => {
+                    tab.classList.remove('active', 'border-blue-600', 'text-blue-600');
+                    tab.classList.add('text-stone-500');
+                });
+
+                // Show target content
+                const targetContent = document.getElementById(targetId);
+                if (targetContent) {
+                    targetContent.classList.add('active');
+                }
+
+                // Activate target tab
+                const targetTab = document.querySelector(`[data-tab-target="${targetId}"]`);
+                if (targetTab) {
+                    targetTab.classList.add('active', 'border-blue-600', 'text-blue-600');
+                    targetTab.classList.remove('text-stone-500');
+                }
+            }
+
+            tabContainer.addEventListener('click', (e) => {
+                const clickedTab = e.target.closest('.tab-button');
+                if (!clickedTab) return;
+
+                const targetId = clickedTab.dataset.tabTarget;
+                setActiveTab(targetId);
+            });
+
+            // Set initial active tab (Azul)
+            setActiveTab('tab-azul');
+        });
+    </script>
+
+</body>
+</html>
